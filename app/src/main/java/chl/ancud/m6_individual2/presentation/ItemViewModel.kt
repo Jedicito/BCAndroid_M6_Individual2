@@ -19,6 +19,9 @@ class ItemViewModel (application: Application): AndroidViewModel(application) {
 
     fun getAllItems(): LiveData<List<Item>> = repository.getItemes()
 
+    fun getTotal(): LiveData<Int> = repository.getTotal()
+
+
     fun insertItem(nombre: String, precio: Int, cantidad: Int) = viewModelScope.launch {
         val item = Item(nombre, precio, cantidad)
         repository.insertItem(item)

@@ -9,4 +9,5 @@
     <string name="etCantidadHint">Cantidad del Artículo</string>
     <string name="btAgregar">Agregar Artículo</string>
     <string name="etNombre">Nombre del artículo</string>
+    <string name="tvTotal">"Total: "</string>
 </resources>

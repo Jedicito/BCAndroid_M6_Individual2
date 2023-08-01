@@ -13,4 +13,8 @@ class Repository(private val itemDao: ItemDao) {
     fun getItemes(): LiveData<List<Item>> {
         return itemDao.getItemes()
     }
+
+    fun getTotal(): LiveData<Int> {
+        return itemDao.getTotal()
+    }
 }

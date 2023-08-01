@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import chl.ancud.m6_individual2.R
 import chl.ancud.m6_individual2.databinding.ActivityMainBinding
 import chl.ancud.m6_individual2.databinding.FragmentAgregarBinding
@@ -27,6 +29,7 @@ class AgregarFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentAgregarBinding.inflate(inflater, container, false)
+        mostrarTotal()
         initListener()
         return binding.root
     }
@@ -39,7 +42,15 @@ class AgregarFragment : Fragment() {
 
             viewModel.insertItem(nombre, precio, cantidad)
             Toast.makeText(context, "Item $nombre ingresado.", Toast.LENGTH_SHORT).show()
+
         }
+    }
+
+    private fun mostrarTotal() {
+        viewModel.getTotal().observe(viewLifecycleOwner) {
+            binding.tvTotal.text = "${getString(R.string.tvTotal)} $it"
+        }
+
     }
 
 

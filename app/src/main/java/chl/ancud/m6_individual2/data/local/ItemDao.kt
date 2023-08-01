@@ -14,6 +14,6 @@ interface ItemDao {
     fun getItemes(): LiveData<List<Item>>
 
     @Query ("Select sum(precio * cantidad) from table_item")
-    fun getTotal(): Int
+    fun getTotal(): LiveData<Int>
 
 }
